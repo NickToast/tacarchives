@@ -1,4 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
+import SearchBar from './SearchBar';
+
+
+
 
 const NavBar = () => {
 
@@ -24,6 +28,21 @@ const NavBar = () => {
                 </div>
                 <div>
                     <h2>archives</h2>
+                </div>
+            </div>
+            {/* Right Side Div  */}
+            <div>
+                {/* Search Bar  */}
+                <div>
+                    <SearchBar palceholder="Search" />
+                </div>
+                {/* Login  */}
+                <div>
+
+                </div>
+                {/* Cart  */}
+                <div>
+
                 </div>
             </div>
         </div>

@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: "TerselyRegular";
+  src: local('TerselyRegular'), url('./fonts/tersely-font/TerselyRegular.ttf') format('woff'), url('./fonts/tersely-font/TerselyRegular.ttf') format('woff2');
+}
+
+.navbar-font-color {
+  color: #588157;
+}
+
+.title-font {
+  font-family: TerselyRegular;
+  font-size: 50px;
+}

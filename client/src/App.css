@@ -154,3 +154,13 @@ li {
   color: #A3B18A;
   text-decoration: none;
 }
+
+.search-bar {
+  outline-color: #344E41;
+}
+
+/* Search bar hover effect*/
+.search-bar:hover {
+  border: 2px solid #344E41;
+  border-radius: 3px;
+}

@@ -1,5 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  background-color: #DAD7CD;
 }
 
 .App-logo {
@@ -49,4 +56,59 @@
 .title-font {
   font-family: TerselyRegular;
   font-size: 50px;
+}
+
+.hero-section{
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-container{
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  width: 50%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: whitesmoke;
+  margin-right: -250px;
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.hero-image{
+  width: 80%;
+  height: 600px;
+  background: url(./assets/IMG_4552.jpg) no-repeat center / cover;
+  border-radius: 5px;
+  position: relative;
+  z-index: 0;
+}
+
+/* Media query for hero section */
+@media only screen and (max-width: 768px) {
+  .hero-container{
+    flex-direction: column;
+  }
+  .text {
+    width: 80%;
+    margin: 0;
+    margin-bottom: -150px;
+    /* position: absolute; */
+  }
+  .hero-image {
+    width: 95%;
+  }
 }

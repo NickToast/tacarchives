@@ -1,18 +1,17 @@
 import React, {useState} from 'react';
+import { BiSearch } from 'react-icons/bi'
 
-const SearchBar = ({placeholder, data}) => {
+
+const SearchBar = () => {
 
     
 
     return (
         <div className='search'>
-            <div className='searchInputs'>
-                {/* Search Icon  */}
-                <div className='searchIcon'>
-
-                </div>
+            <div className=''>
                 {/* Input Field for Search Bar  */}
-                <input type="text" placeholder={placeholder} />
+                <i><BiSearch /></i>
+                <input type="text" placeholder='Search' className='m-3 px-2 py-1 w-75' />
             </div>
             <div className='dataResult'>
 

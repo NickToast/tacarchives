@@ -6,14 +6,14 @@ const Footer = () => {
             {/* Top div with links */}
             <div className='footer d-flex justify-content-evenly align-items-center text-light py-3'>
                 <div>
-                    <p>Facebook</p>
-                    <p>Instagram</p>
-                    <p>Pinterest</p>
+                    <p className='footer-link'>Facebook</p>
+                    <p className='footer-link'>Instagram</p>
+                    <p className='footer-link'>Pinterest</p>
                 </div>
                 <div>
-                    <p>Contact</p>
-                    <p>Tel: 123-456-7890</p>
-                    <p>info@mysite.com</p>
+                    <p className='footer-link'>Contact</p>
+                    <p className='footer-link'>Tel: 123-456-7890</p>
+                    <p className='footer-link'>info@mysite.com</p>
                 </div>
             </div>
             {/* Bot div with copyright */}

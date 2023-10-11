@@ -170,6 +170,11 @@ li {
   background: black;
 }
 
+.footer-link {
+  margin: 5px;
+  padding: 0;
+}
+
 /* Copyright section for footer*/
 .copyright {
   background: linear-gradient(0.25turn, #3A5A40, #DAD7CD, #3A5A40);

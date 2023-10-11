@@ -1,26 +1,46 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import SearchBar from './SearchBar';
 import { BsPersonCircle } from 'react-icons/bs'
 import { BiDownArrowAlt } from 'react-icons/bi'
 import { LiaShoppingBagSolid } from 'react-icons/lia'
+import { Link, NavLink, useParams } from 'react-router-dom';
 
 
-const NavBar = () => {
+const NavBar = (props) => {
 
-
+    const currentRoute = useParams();
 
     return (
         // NavBar Div
         <div className="container">
             <div className="d-flex justify-content-between align-items-center">
                 {/* // Links on the left of NavBar */}
-                <div className='d-flex gap-3 m-5'>
-                    <p>Home</p>
-                    <p>Shop</p>
-                    <p>About</p>
-                    <p>FAQ</p>
-                    <p>Contact</p>
-                </div>
+                <ul className='d-flex gap-3 m-5 nav-bar'>
+                    <li>
+                        <NavLink to='/' className={({isActive}) => (isActive ? 'active' : 'nav-link')}
+                        >
+                            Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/about' className={({isActive}) => (isActive ? 'active' : 'nav-link')}
+                        >
+                            About
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/faq' className={({isActive}) => (isActive ? 'active' : 'nav-link')}
+                        >
+                            FAQ
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/contact' className={({isActive}) => (isActive ? 'active' : 'nav-link')}
+                        >
+                            Contact
+                        </NavLink>
+                    </li>
+                </ul>
                 {/* Website Name in the middle of Navbar */}
                 <div className='title-font navbar-font-color'>
                     {/* Div to stack the words */}

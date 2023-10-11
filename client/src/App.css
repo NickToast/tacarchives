@@ -112,3 +112,45 @@
     width: 95%;
   }
 }
+
+li {
+  list-style-type: none;
+}
+
+/* For underline on hover
+.link {
+  color: black;
+  text-decoration: none;
+  position: relative;
+}
+
+/* 
+.link:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  width: 0px;
+  height: 1px;
+  background: #333;
+  transition: all 0.45s;
+} */
+
+/* .link:hover:after{
+  color: #A3B18A;
+  width: 100%;
+  left: 0;
+} */ 
+
+.nav-link{
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #A3B18A
+}
+
+.active {
+  color: #A3B18A;
+  text-decoration: none;
+}

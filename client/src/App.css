@@ -164,3 +164,13 @@ li {
   border: 2px solid #344E41;
   border-radius: 3px;
 }
+
+/* Footer CSS */
+.footer {
+  background: black;
+}
+
+/* Copyright section for footer*/
+.copyright {
+  background: linear-gradient(0.25turn, #3A5A40, #DAD7CD, #3A5A40);
+}

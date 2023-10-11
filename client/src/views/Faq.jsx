@@ -7,6 +7,7 @@ const Faq = () => {
     return (
         <div>
             <NavBar/>
+            <h2>FAQ</h2>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import HeroSection from "../components/HeroSection";
+import FeaturedItems from "../components/FeaturedItems";
 
 const Home = () => {
 
@@ -10,6 +11,7 @@ const Home = () => {
         <div>
             <NavBar/>
             <HeroSection/>
+            <FeaturedItems/>
         </div>
     )
 }

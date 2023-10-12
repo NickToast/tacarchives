@@ -59,7 +59,9 @@ const NavBar = (props) => {
                     </div>
                     {/* Login  */}
                     <div className='d-flex gap-2'>
-                        <i><BsPersonCircle size={25}/></i>
+                        <Link to='/login'>
+                            <i><BsPersonCircle size={25}/></i>
+                        </Link>
                         <i><BiDownArrowAlt size={25}/></i>
                     </div>
                     {/* Cart  */}

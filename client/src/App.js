@@ -6,6 +6,7 @@ import Home from './views/Home';
 import About from './views/About'
 import Faq from './views/Faq';
 import Contact from './views/Contact';
+import Login from './views/Login';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/about' element={<About/>}></Route>
         <Route path='/faq' element={<Faq/>}></Route>
         <Route path='/contact' element={<Contact/>}></Route>
+        <Route path='/login' element={<Login/>}></Route>
       </Routes>
     </div>
   );

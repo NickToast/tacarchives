@@ -2,18 +2,15 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const UserSchema = new mongoose.Schema({
-    first_name: {
+    username: {
         type: String,
-        required: [true, 'Please enter a first name']
-    },
-    last_name: {
-        type: String,
-        required: [true, 'Please enter a last name']
+        required: [true, 'Please enter a username'],
+        unique: [true, 'Username has already been taken!']
     },
     email: {
         type: String,
         required: [true, 'Please enter an email address'],
-        unique: true
+        unique: [true, 'Email has already been taken!']
     },
     validate: {
         validator: val => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),

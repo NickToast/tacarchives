@@ -27,7 +27,7 @@ const Login = () => {
                     <button type='submit' className='btn-login'>Login</button>
                     <div className="register-link d-flex justify-content-center gap-2 mt-3">
                         <p className='text-light'>Don't have an account?</p>
-                        <Link to='/register' className='forgot-password-register-link fw-bold'>Register</Link>
+                        <Link to='/register' className='forgot-password-register-link fw-bold'>Register Here</Link>
                     </div>
                 </form>
             </div>

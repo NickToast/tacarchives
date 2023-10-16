@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { GoPerson } from 'react-icons/go'
 import { BiLockAlt } from 'react-icons/bi'
+import axios from 'axios'
 
 const Registration = () => {
 
@@ -10,19 +11,44 @@ const Registration = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const navigator = useNavigate();
+
+    const [formData, setFormData] = useState({
+        username: '',
+        email: '',
+        password: ''
+    });
+
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        setFormData(currentData => ({...currentData, [name]:value}));
+        // console.log(formData);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const newUser = {
-            username: username,
-            email: email,
-            password: password,
-            confirmPassword: confirmPassword
-        }
-
-        axios.post('http://localhost:8000/api/register', payload, {withCredentials: true})
-            .then(res => )
-
+        // const newUser = {
+        //     username: username,
+        //     email: email,
+        //     password: password,
+        //     confirmPassword: confirmPassword
+        // }
+        // axios.post('http://localhost:8000/api/register', formData, {withCredentials: true})
+        axios.post('http://localhost:8000/api/register', formData)
+            .then(res => {
+                // To reset formData back to empty
+                setFormData({
+                    username: '',
+                    email: '',
+                    password: ''
+                })
+                navigator('/');
+                console.log(res.message);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     return (
@@ -31,19 +57,19 @@ const Registration = () => {
                 <form onSubmit={handleSubmit}>
                     <h1>Register</h1>
                     <div className='input-box'>
-                        <input type="text" className='text-light ps-3' placeholder='Username' name='username' onChange={(e) => setUsername(e.target.value)}/>
+                        <input type="text" className='text-light ps-3' placeholder='Username' name='username' value={formData.username} onChange={handleChange}/>
                         <i><GoPerson size={20} className='text-light'/></i>
                     </div>
                     <div className='input-box'>
-                        <input type="text" className='text-light ps-3' placeholder='Email' name='email' onChange={(e) => setEmail(e.target.value)}/>
+                        <input type="text" className='text-light ps-3' placeholder='Email' name='email' value={formData.email} onChange={handleChange}/>
                         <i><GoPerson size={20} className='text-light'/></i>
                     </div>
                     <div className='input-box'>
-                        <input className='text-light ps-3' type="password" placeholder='Password' name='password' onChange={(e) => setPassword(e.target.value)}/>
+                        <input className='text-light ps-3' type="password" placeholder='Password' name='password' value={formData.password} onChange={handleChange}/>
                         <i><BiLockAlt size={20} className='text-light'/></i>
                     </div>
                     <div className='input-box'>
-                        <input className='text-light ps-3' type="password" placeholder='Confirm Password' name='confirmPassword' onChange={(e) => setConfirmPassword(e.target.value)}/>
+                        <input className='text-light ps-3' type="password" placeholder='Confirm Password' name='confirmPassword' onChange={handleChange}/>
                         <i><BiLockAlt size={20} className='text-light'/></i>
                     </div>
                     <input type='submit' className='btn-login' value='Register'></input>

@@ -1,6 +1,11 @@
-const UserSchema = require('../models/user.model');
+const User = require('../models/user.model');
 
 module.exports = {
+    getAll: (req, res) => {
+        User.find()
+            .then(users => res.json(users))
+            .catch(err => res.json(err))
+    },
     login: async (req,res) => {
         const user = await User.findOne({ email: req.body.email });
 

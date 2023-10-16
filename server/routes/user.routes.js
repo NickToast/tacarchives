@@ -1,11 +1,12 @@
 // inside of user.routes.js
-const Users = require('../controllers/user.controller');
+const userController = require('../controllers/users.controller');
 const { authenticate } = require('../config/jwt.config');
+
 module.exports = app => {
-    app.post("/api/register", Users.register);
-    app.post("/api/login", Users.login);
+    app.post("/api/register", userController.register);
+    app.post("/api/login", userController.login);
     // this route now has to be authenticated
     // in order to get to this route, you must first be logged in or registered on the site
-    app.get("/api/users", authenticate, Users.getAll);
+    app.get("/api/users", authenticate, userController.getAll);
 }
 

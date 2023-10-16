@@ -7,10 +7,13 @@ require('./config/mongoose.config.js')
 const cookieParser = require('cookie-parser');
 
 
-app.use(cookieParser());
 app.use(express.json());
 app.use( express.urlencoded({ extended: true }) );
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cookieParser());
+
+const userRoutes = require('./routes/user.routes.js')
+userRoutes(app);
 
 // const routeAttacher = require('./routes/pin.routes')
 // routeAttacher(app);

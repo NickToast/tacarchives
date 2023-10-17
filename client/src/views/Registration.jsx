@@ -43,7 +43,7 @@ const Registration = () => {
                     email: '',
                     password: ''
                 })
-                navigator('/');
+                navigator('/registered');
                 console.log(res.message);
             })
             .catch(err => {

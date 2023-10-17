@@ -8,6 +8,7 @@ import Faq from './views/Faq';
 import Contact from './views/Contact';
 import Login from './views/Login';
 import Registration from './views/Registration';
+import Registered from './views/Registered';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Registration/>}></Route>
+        <Route path='/registered' element={<Registered/>}></Route>
       </Routes>
     </div>
   );

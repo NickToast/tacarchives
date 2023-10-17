@@ -4,6 +4,11 @@ import { BsPersonCircle } from 'react-icons/bs'
 import { BiDownArrowAlt } from 'react-icons/bi'
 import { LiaShoppingBagSolid } from 'react-icons/lia'
 import { Link, NavLink, useParams } from 'react-router-dom';
+// import DropdownToggle from 'react-bootstrap/DropdownToggle';
+// import DropdownMenu from 'react-bootstrap/DropdownMenu'
+import DropDown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Logout from './Logout';
 
 
 const NavBar = (props) => {
@@ -59,10 +64,27 @@ const NavBar = (props) => {
                     </div>
                     {/* Login  */}
                     <div className='d-flex gap-2'>
-                        <Link to='/login'>
-                            <i><BsPersonCircle size={25}/></i>
-                        </Link>
-                        <i><BiDownArrowAlt size={25}/></i>
+                            <Link to='/login'>
+                                <i><BsPersonCircle size={25}/></i>
+                            </Link>
+                            <Logout/>
+                        {/* <DropDown>
+                            <Link to='/login'>
+                                <i><BsPersonCircle size={25}/></i>
+                            </Link>
+                            <DropdownButton>
+                                <i><BiDownArrowAlt size={25}/></i>
+                            </DropdownButton>
+                            <DropDown.Toggle>
+                                <i><BiDownArrowAlt size={25}/></i>
+                            </DropDown.Toggle>
+                            <DropDown.Menu>
+                                <DropDown.ItemText>Welcome, User!</DropDown.ItemText>
+                            </DropDown.Menu>
+                            <ul className='dropdown-menu' aria-labelledby='user-dropdown'>
+                                <li>Welcome, user!</li>
+                            </ul>
+                        </DropDown> */}
                     </div>
                     {/* Cart  */}
                     <div>

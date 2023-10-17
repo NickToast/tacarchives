@@ -31,12 +31,12 @@ const UserSchema = new mongoose.Schema({
 /* Next function for middleware - when our middleware has completed its function, we need to call the next() function
 to have the middleware or next function to run*/
 
-// UserSchema.pre('validate', function(next) {
-//     if (this.password !== this._confirmPassword) {
-//         this.invalidate('confirmPassword', 'Password must match confirm password');
-//     }
-//     next();
-// });
+UserSchema.pre('validate', function(next) {
+    if (this.password !== this._confirmPassword) {
+        this.invalidate('confirmPassword', 'Password must match confirm password');
+    }
+    next();
+});
 
 /* Bcrypt
 Using NPM we can install this with npm i bcrypt

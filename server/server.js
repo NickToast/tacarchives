@@ -3,10 +3,11 @@ const dotenv = require('dotenv').config();
 const port = process.env.PORT;
 const cors = require('cors');
 const app = express()
+//database connection
 require('./config/mongoose.config.js')
 const cookieParser = require('cookie-parser');
 
-
+//middleware
 app.use(express.json());
 app.use( express.urlencoded({ extended: true }) );
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));

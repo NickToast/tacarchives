@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { GoPerson } from 'react-icons/go'
 import { BiLockAlt } from 'react-icons/bi'
 import axios from 'axios'
+import { toast } from 'react-hot-toast'
 
 
 const Login = () => {
@@ -18,19 +19,37 @@ const Login = () => {
     const handleChange = (e) => {
         const {name, value} = e.target
         setFormData(formData => ({...formData, [name]:value}));
-        // console.log(formData);
     }
 
-    const handleSubmit = (e) => {
+    const loginUser = async (e) => {
         e.preventDefault()
-        axios.get('/')
+        //Destructure data for email and pw
+        const {email, password} = formData;
+        try {
+            const {data} = await axios.post('/login', {
+                email,
+                password
+            })
+            if(data.error) {
+                toast.error(data.error)
+            } else {
+                setFormData({
+                    email: '',
+                    password: ''
+                });
+                toast.success('Login Successful!')
+                navigator('/')
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
 
     return (
         <div className="login-bg d-flex justify-content-center align-items-center">
             <div className='login-container py-3 px-4'>
-                <form action={handleSubmit}>
+                <form action={loginUser}>
                     <h1>Login</h1>
                     <div className='input-box'>
                         <input type="text" className='text-light ps-3' placeholder='Email' name='email' value={formData.email} onChange={handleChange} />

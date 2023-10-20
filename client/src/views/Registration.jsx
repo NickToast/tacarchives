@@ -3,13 +3,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import { GoPerson } from 'react-icons/go'
 import { BiLockAlt } from 'react-icons/bi'
 import axios from 'axios'
+import {toast} from 'react-hot-toast'
 
 const Registration = () => {
 
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    // const [username, setUsername] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [confirmPassword, setConfirmPassword] = useState('');
 
     const navigator = useNavigate();
 
@@ -25,9 +26,29 @@ const Registration = () => {
         // console.log(formData);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-
+        //destructure data
+        const {username, email, password} = formData;
+        try {
+            const {data} = await axios.post('/register', {
+                //payload (the info being sent to the backend)
+                username, email, password
+            })
+            if (data.error) {
+                toast.error(data.error)
+            } else {
+                setFormData({
+                    username:'',
+                    email: '',
+                    password: ''
+                })
+                toast.success("Registration Successful!")
+                navigator('/')
+            }
+        } catch (error) {
+            console.log(error)
+        }
         // const newUser = {
         //     username: username,
         //     email: email,
@@ -68,10 +89,10 @@ const Registration = () => {
                         <input className='text-light ps-3' type="password" placeholder='Password' name='password' value={formData.password} onChange={handleChange}/>
                         <i><BiLockAlt size={20} className='text-light'/></i>
                     </div>
-                    <div className='input-box'>
+                    {/* <div className='input-box'>
                         <input className='text-light ps-3' type="password" placeholder='Confirm Password' name='confirmPassword' onChange={handleChange}/>
                         <i><BiLockAlt size={20} className='text-light'/></i>
-                    </div>
+                    </div> */}
                     <input type='submit' className='btn-login' value='Register'></input>
                     <div className="register-link d-flex justify-content-center gap-2 mt-3">
                         <p className='text-light'>Already have an account?</p>

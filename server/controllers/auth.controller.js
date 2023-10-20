@@ -1,10 +1,88 @@
-
-
+const User = require('../models/user.model')
+const { hashPassword, comparePassword } = require('../helpers/auth')
 
 const test = (req, res) => {
     res.json('test is working')
 }
 
+//Register Endpoint Function
+
+const registerUser = async (req, res) => {
+    try {
+        const {username, email,password} = req.body
+        //Check if name is entered
+        if (!username) {
+            return res.json({
+                error: "Username is required"
+            })
+        };
+        //Check if password is good
+        if (!password) {
+            return res.json({
+                error: "Password is required"
+            })
+        };
+        if (password.length < 6) {
+            return res.json({
+                error: "Password should be at least 6 characters long"
+            })
+        };
+        //Check email
+        const exist = await User.findOne({email});
+        if (exist) {
+            return res.json({
+                error: "Email has been taken already"
+            })
+        }
+
+        const hashedPassword = await hashPassword(password);
+        //If everything passes, then create the User
+        const user = await User.create({
+            username,
+            email,
+            password: hashedPassword
+        })
+
+        return res.json(user);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//Login Endpoint Function
+
+const loginUser = async (req, res) => {
+    try {
+        //Destructure for email and password
+        const {email, password} = req.body
+
+        //Check if User exists
+        const user = await User.findOne({email});
+        if(!user) {
+            return res.json({
+                error: 'No user found'
+            })
+        }
+
+        //Check if password matches
+        const match = comparePassword(password, user.password);
+        if(match) {
+            res.json({
+                error: 'passwords match'
+            })
+        }
+        if(!match) {
+            res.json({
+                error: 'Incorrect email/password'
+            })
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 module.exports = {
-    test
+    test,
+    registerUser,
+    loginUser
 }

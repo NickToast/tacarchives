@@ -67,7 +67,7 @@ const NavBar = (props) => {
                             <Link to='/login'>
                                 <i><BsPersonCircle size={25}/></i>
                             </Link>
-                            <Logout/>
+                            {/* <Logout/> */}
                         {/* <DropDown>
                             <Link to='/login'>
                                 <i><BsPersonCircle size={25}/></i>
@@ -87,9 +87,9 @@ const NavBar = (props) => {
                         </DropDown> */}
                     </div>
                     {/* Cart  */}
-                    <div>
+                    {/* <div>
                         <i><LiaShoppingBagSolid size={30}/></i>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

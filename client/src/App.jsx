@@ -9,6 +9,12 @@ import Contact from './views/Contact';
 import Login from './views/Login';
 import Registration from './views/Registration';
 import Registered from './views/Registered';
+import NavBar from './components/NavBar';
+import axios from 'axios'
+
+//So you no longer have to type the base URL anymore for axios requests, you only have to type the endpoints
+axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.withCredentials = true
 
 function App() {
   return (

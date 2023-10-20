@@ -21,11 +21,11 @@ const Registration = () => {
 
     const handleChange = (e) => {
         const {name, value} = e.target
-        setFormData(currentData => ({...currentData, [name]:value}));
+        setFormData(formData => ({...formData, [name]:value}));
         // console.log(formData);
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
 
         // const newUser = {
@@ -35,20 +35,20 @@ const Registration = () => {
         //     confirmPassword: confirmPassword
         // }
         // axios.post('http://localhost:8000/api/register', formData, {withCredentials: true})
-        axios.post('http://localhost:8000/api/register', formData)
-            .then(res => {
-                // To reset formData back to empty
-                setFormData({
-                    username: '',
-                    email: '',
-                    password: ''
-                })
-                navigator('/registered');
-                console.log(res.message);
-            })
-            .catch(err => {
-                console.log(err);
-            })
+        // axios.post('http://localhost:8000/api/register', formData)
+        //     .then(res => {
+        //         // To reset formData back to empty
+        //         setFormData({
+        //             username: '',
+        //             email: '',
+        //             password: ''
+        //         })
+        //         navigator('/registered');
+        //         console.log(res.message);
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     })
     }
 
     return (

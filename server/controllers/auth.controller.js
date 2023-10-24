@@ -1,5 +1,6 @@
-const User = require('../models/user.model')
-const { hashPassword, comparePassword } = require('../helpers/auth')
+const User = require('../models/user.model');
+const { hashPassword, comparePassword } = require('../helpers/auth');
+const jwt = require('jsonwebtoken');
 
 const test = (req, res) => {
     res.json('test is working')
@@ -69,6 +70,16 @@ const loginUser = async (req, res) => {
         if(match) {
             res.json({
                 error: 'passwords match'
+            })
+            jwt.sign({
+                email: user.email,
+                id: user._id,
+                username: user.username
+            }, process.env.JWT_SECRET, {}, (err, token) => {
+                //If error, it will throw an error
+                if(err) throw err;
+                //If no errors, creates a cookie called token, and we use json to send it as an object of user
+                res.cookie('token', token).json(user)
             })
         }
         if(!match) {

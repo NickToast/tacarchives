@@ -9,9 +9,9 @@ const Logout = () => {
     const signOut = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:8000/api/logout', {}, {withCredentials: true})
+        axios.post('/logout', {}, {withCredentials: true})
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 navigate('/login')
             })
             .catch(err => console.log(err))

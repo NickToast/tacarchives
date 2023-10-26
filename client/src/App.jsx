@@ -12,24 +12,28 @@ import Registered from './views/Registered';
 import NavBar from './components/NavBar';
 import axios from 'axios'
 import {Toaster} from 'react-hot-toast'
+import { UserContextProvider } from './context/userContext';
 
 //So you no longer have to type the base URL anymore for axios requests, you only have to type the endpoints
 axios.defaults.baseURL = 'http://localhost:8000'
 axios.defaults.withCredentials = true
 
+//UserContextProvider allows us to use the state that is defined in the provider (then need to create endpoint for it)
 function App() {
   return (
     <div className="App">
-      <Toaster position='bottom-right' toastOptions={{duration:5000}} />
-      <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/about' element={<About/>}></Route>
-        <Route path='/faq' element={<Faq/>}></Route>
-        <Route path='/contact' element={<Contact/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
-        <Route path='/register' element={<Registration/>}></Route>
-        <Route path='/registered' element={<Registered/>}></Route>
-      </Routes>
+      <UserContextProvider>
+        <Toaster position='bottom-right' toastOptions={{duration:2000}} />
+        <Routes>
+          <Route path='/' element={<Home/>}></Route>
+          <Route path='/about' element={<About/>}></Route>
+          <Route path='/faq' element={<Faq/>}></Route>
+          <Route path='/contact' element={<Contact/>}></Route>
+          <Route path='/login' element={<Login/>}></Route>
+          <Route path='/register' element={<Registration/>}></Route>
+          <Route path='/registered' element={<Registered/>}></Route>
+        </Routes>
+      </UserContextProvider>
     </div>
   );
 }

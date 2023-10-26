@@ -9,11 +9,18 @@ import { Link, NavLink, useParams } from 'react-router-dom';
 import DropDown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Logout from './Logout';
+import { useContext } from "react"
+import { UserContext } from "../context/userContext"
 
 
 const NavBar = (props) => {
 
     const currentRoute = useParams();
+
+    const {user} = useContext(UserContext);
+    //Then use jsx syntax to show the name or other information on
+    // {!!user && (<h2> Hi {user.username}! </h2>)}
+    //Maybe we can use ternary operator as well?
 
     return (
         // NavBar Div

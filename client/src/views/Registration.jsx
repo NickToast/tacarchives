@@ -43,8 +43,8 @@ const Registration = () => {
                     email: '',
                     password: ''
                 })
-                toast.success("Registration Successful!")
-                navigator('/')
+                toast.success("Registration Successful! Sign in with your new account!")
+                navigator('/login')
             }
         } catch (error) {
             console.log(error)

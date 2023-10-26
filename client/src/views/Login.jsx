@@ -4,6 +4,7 @@ import { GoPerson } from 'react-icons/go'
 import { BiLockAlt } from 'react-icons/bi'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import Logout from '../components/Logout'
 
 
 const Login = () => {
@@ -38,7 +39,7 @@ const Login = () => {
                     password: ''
                 });
                 toast.success('Login Successful!')
-                navigator('/')
+                navigator('/registered')
             }
         } catch (error) {
             console.log(error);
@@ -49,7 +50,7 @@ const Login = () => {
     return (
         <div className="login-bg d-flex justify-content-center align-items-center">
             <div className='login-container py-3 px-4'>
-                <form action={loginUser}>
+                <form onSubmit={loginUser}>
                     <h1>Login</h1>
                     <div className='input-box'>
                         <input type="text" className='text-light ps-3' placeholder='Email' name='email' value={formData.email} onChange={handleChange} />
@@ -69,6 +70,7 @@ const Login = () => {
                         <Link to='/register' className='forgot-password-register-link fw-bold'>Register Here</Link>
                     </div>
                 </form>
+                <Logout></Logout>
             </div>
         </div>
     )

@@ -15,7 +15,10 @@ const Registered = () => {
             <h1>You have been registered!</h1>
             <h2>Start browsing now!</h2>
             <Link to='/'>To Home Page</Link>
-            {!!user && (<h2> Hi {user.username}! </h2>)}
+            {/* {!!user && (<h2> Hi {user.username}! </h2>)} */}
+            { //Check if there is user
+                user != null ? <h2>Hi {user.username}</h2> : <p>Sign up and login!</p>
+            }
             <Logout></Logout>
         </div>
     )

@@ -8,6 +8,7 @@ export function UserContextProvider({children}) {
     const [user, setUser] = useState(null);
     //useEffect will go off every time a page renders
     useEffect(() => {
+        
         if(!user){
             //Get a user
             axios.get('/profile')

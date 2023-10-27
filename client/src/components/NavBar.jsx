@@ -92,6 +92,10 @@ const NavBar = (props) => {
                                 <li>Welcome, user!</li>
                             </ul>
                         </DropDown> */}
+                        {
+                            (user) ? <Link to='/newpin'>Add New Pin</Link> : <></>
+                        }
+
                     </div>
                     {/* Cart  */}
                     {/* <div>

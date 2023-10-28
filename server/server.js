@@ -41,7 +41,7 @@ app.post('/multiple', upload.array('images', 10), (req, res) => {
 const userRoutes = require('./routes/user.routes.js')
 userRoutes(app);
 
-app.use('/', require('./routes/auth.routes.js'))
+app.use('/', require('./routes/auth.routes.js'), require('./routes/pin.routes.js'))
 // app.use('/users', require('./routes/user.routes.js'))
 // app.use('/auth', require('./routes/auth.routes.js'))
 

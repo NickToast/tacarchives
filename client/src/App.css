@@ -293,3 +293,9 @@ li {
   width: 70%;
   height: 100%;
 }
+
+.pin-label {
+  display: inline-block;
+  text-align: end;
+  width: 5rem;
+}

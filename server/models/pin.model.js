@@ -7,7 +7,13 @@ const PinSchema = new mongoose.Schema({
     price: {
         type: Number
     },
+    grade: {
+        type: String
+    },
     image: {
+        type: String
+    },
+    category: {
         type: String
     },
     created_at: {

@@ -11,6 +11,7 @@ router.use(
     })
 )
 
+
 //Endpoints and functions
 router.get('/', test)
 router.post('/register', registerUser)

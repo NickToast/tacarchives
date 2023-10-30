@@ -29,6 +29,7 @@ const NewPin = () => {
 
         data.append('image', fileData);
         data.append('formData', formData);
+        
 
         axios.post('/single', data)
             .then((res) => {

@@ -4,6 +4,8 @@ const port = process.env.PORT;
 const cors = require('cors');
 const app = express();
 const multer = require('multer');
+const path = require('path')
+
 
 //database connection
 require('./config/mongoose.config.js')
@@ -20,7 +22,7 @@ const fileStorageEngine = multer.diskStorage({
         cb(null, './images')
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now + '--' + file.originalname);
+        cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
     },
 });
 
@@ -28,17 +30,32 @@ const fileStorageEngine = multer.diskStorage({
 //multer middleware
 const upload = multer({storage: fileStorageEngine})
 
-app.post('/single', upload.single('image'), (req, res) => {
+app.post('/upload', upload.single('file', 'formData'), (req, res) => {
+    const dataForm = JSON.parse(req.body.formData)
+    // Destructure
+    const { name, price, grade, category } = dataForm
+    // console.log(name, price, grade, category)
     console.log(req.file);
-    res.send('Single file upload success');
+    Pin.create({
+        name: name,
+        price: price,
+        grade: grade,
+        category: category,
+        image: req.file.filename
+    })
+        .then(result => {
+            res.json(result)
+        })
+        .catch((err) => console.log(err))
 });
 
-app.post('/multiple', upload.array('images', 10), (req, res) => {
-    console.log(req.files);
+app.post('/multiple', upload.array('image'), (req, res) => {
+    console.log(req.body);
     res.send('Multiple files upload success');
 })
 
-const userRoutes = require('./routes/user.routes.js')
+const userRoutes = require('./routes/user.routes.js');
+const Pin = require('./models/pin.model.js');
 userRoutes(app);
 
 app.use('/', require('./routes/auth.routes.js'), require('./routes/pin.routes.js'))

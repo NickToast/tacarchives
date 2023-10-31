@@ -8,10 +8,12 @@ const NewPin = () => {
 
     const [formData, setFormData] = useState({
         name: '',
-        price: null
+        price: 0,
+        grade: '',
+        category: ''
     })
 
-    const [fileData, setFileData] = useState(null);
+    const [file, setFileData] = useState();
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -27,17 +29,20 @@ const NewPin = () => {
 
         const data = new FormData();
 
-        data.append('image', fileData);
-        data.append('formData', formData);
-        
+        // Send the object with JSON.stringify and then use JSON.parse once you receive data, to make the string object an object again
+        // Without JSON.stringify, formData will be sent as an object of [object Object], this way we can send with json stringify and parse the
+        //data with json parse
+        data.append('formData', JSON.stringify(formData));
+        data.append('file', file);
 
-        axios.post('/single', data)
+        axios.post('/upload', data)
             .then((res) => {
-                console.log('File uploaded successful')
+                console.log(res)
                 toast.success('Successful file upload!')
             })
             .catch((err) => {
                 console.log(err);
+                console.log(data);
                 toast.error('Something went wrong :(')
             })
     }
@@ -50,15 +55,15 @@ const NewPin = () => {
                 <form onSubmit={handleSubmit}>
                     <div className='mb-3'>
                         <label className='me-2 pin-label'>Name: </label>
-                        <input type="text" placeholder='Name' className='px-2 py-2 pin-input' name='name' onChange={handleChange}/>
+                        <input type="text" placeholder='Name' className='px-2 py-2 pin-input' name='name' value={formData.name} onChange={handleChange}/>
                     </div>
                     <div className='mb-3'>
                         <label className='me-2 pin-label'>Price: </label>
-                        <input type="number" placeholder='$0.00' className='px-2 py-2 pin-input' name='price' onChange={handleChange}/>
+                        <input type="number" placeholder='$0.00' className='px-2 py-2 pin-input' name='price' value={formData.price} onChange={handleChange}/>
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="grade" className='me-2 pin-label'>Grade: </label>
-                        <select name='grade' id='grade' className='px-2 py-2 pin-input'>
+                        <select name='grade' id='grade' className='px-2 py-2 pin-input' value={formData.grade} onChange={handleChange}>
                             <option value="" disabled>~ Choose Grade ~</option>
                             <option value="A">A</option>
                             <option value="B">B</option>
@@ -67,7 +72,7 @@ const NewPin = () => {
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="category" className='me-2 pin-label'>Category: </label>
-                        <select name='category' className='px-2 py-2 pin-input'>
+                        <select name='category' id='category' className='px-2 py-2 pin-input' value={formData.category} onChange={handleChange}>
                             <option value="" disabled>~ Choose a Category ~</option>
                             <option value="disney">Disney</option>
                             <option value="anime">Anime</option>

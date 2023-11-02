@@ -299,3 +299,9 @@ li {
   text-align: end;
   width: 5rem;
 }
+
+/*Pin Photo CSS*/
+.pin-img {
+  height: 10rem;
+  width: 10rem;
+}

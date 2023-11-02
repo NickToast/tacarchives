@@ -14,6 +14,7 @@ import axios from 'axios'
 import {Toaster} from 'react-hot-toast'
 import { UserContextProvider } from './context/userContext';
 import NewPin from './views/NewPin';
+import Shop from './views/Shop';
 
 //So you no longer have to type the base URL anymore for axios requests, you only have to type the endpoints
 axios.defaults.baseURL = 'http://localhost:8000'
@@ -27,6 +28,7 @@ function App() {
         <Toaster position='bottom-right' toastOptions={{duration:2000}} />
         <Routes>
           <Route path='/' element={<Home/>}></Route>
+          <Route path='/shop' element={<Shop/>}></Route>
           <Route path='/about' element={<About/>}></Route>
           <Route path='/faq' element={<Faq/>}></Route>
           <Route path='/contact' element={<Contact/>}></Route>

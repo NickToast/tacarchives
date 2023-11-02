@@ -16,6 +16,7 @@ app.use(express.json());
 app.use( express.urlencoded({ extended: true }) );
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use(cookieParser());
+app.use(express.static('images'));
 
 const fileStorageEngine = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -52,6 +53,16 @@ app.post('/upload', upload.single('file', 'formData'), (req, res) => {
 app.post('/multiple', upload.array('image'), (req, res) => {
     console.log(req.body);
     res.send('Multiple files upload success');
+})
+
+app.get('/allPins', (req, res) => {
+    Pin.find()
+        .then(pin => {
+            res.json(pin);
+            console.log(pin);
+        })
+        .catch(err => console.log(err))
+
 })
 
 const userRoutes = require('./routes/user.routes.js');

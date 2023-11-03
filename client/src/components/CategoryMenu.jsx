@@ -13,7 +13,7 @@ const CategoryMenu = (props) => {
                     <button className='category-btn' onClick={() => setCategoryOpen(!categoryOpen)}>-</button> : 
                     <button className='category-btn' onClick={() => setCategoryOpen(!categoryOpen)}>+</button>
                 }
-                {categoryOpen && props.children}
+                {/* {categoryOpen && props.children} */}
             </div>
             <div>
                 {

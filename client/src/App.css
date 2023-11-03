@@ -300,6 +300,11 @@ li {
   width: 5rem;
 }
 
+.pin-cards > * {
+  margin: 0;
+  padding: 0;
+}
+
 /*Pin Photo CSS*/
 .pin-img {
   height: 10rem;

@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-const CategoryMenu = (props) => {
+const CategoryMenu = ({getAllPins, disneyPins, animePins, hpPins, sonnyAngelPins, smiskiPins, otherPins}) => {
 
     const [categoryOpen, setCategoryOpen] = useState(false);
 
@@ -19,13 +19,13 @@ const CategoryMenu = (props) => {
                 {
                     categoryOpen ? 
                     <ul>
-                        <li><button className="category-filter">All</button></li>
-                        <li><button className="category-filter">Disney</button></li>
-                        <li><button className="category-filter">Anime</button></li>
-                        <li><button className="category-filter">Harry Potter</button></li>
-                        <li><button className="category-filter">Sonny Angel</button></li>
-                        <li><button className="category-filter">Smiski</button></li>
-                        <li><button className="category-filter">Other</button></li>
+                        <li><button className="category-filter" onClick={getAllPins}>All</button></li>
+                        <li><button className="category-filter" onClick={disneyPins}>Disney</button></li>
+                        <li><button className="category-filter" onClick={animePins}>Anime</button></li>
+                        <li><button className="category-filter" onClick={hpPins}>Harry Potter</button></li>
+                        <li><button className="category-filter" onClick={sonnyAngelPins}>Sonny Angel</button></li>
+                        <li><button className="category-filter" onClick={smiskiPins}>Smiski</button></li>
+                        <li><button className="category-filter" onClick={otherPins}>Other</button></li>
                     </ul> : <></>
                 }
             </div>

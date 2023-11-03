@@ -62,7 +62,6 @@ app.get('/allPins', (req, res) => {
             console.log(pin);
         })
         .catch(err => console.log(err))
-
 })
 
 const userRoutes = require('./routes/user.routes.js');

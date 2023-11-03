@@ -4,6 +4,8 @@ import Footer from '../components/Footer'
 import axios from 'axios'
 import Category from '../components/Category'
 import CategoryMenu from '../components/CategoryMenu'
+import PriceMenu from '../components/PriceMenu'
+import GradeMenu from '../components/GradeMenu'
 
 const Shop = () => {
 
@@ -26,7 +28,57 @@ const Shop = () => {
             .catch(err => console.log(err))
     }, [])
 
-    
+    const getAllPins = () => {
+        axios.get('/allPins')
+            .then(res => {
+                setPinPaths(res.data);
+            })
+            .catch(err => console.log(err));
+    }
+
+    const disneyPins = () => {
+        axios.get('/disneyPins')
+        .then( res => {
+            setPinPaths(res.data);
+        })
+        .catch(err => console.log(err))
+    }
+    const animePins = () => {
+        axios.get('/animePins')
+        .then( res => {
+            setPinPaths(res.data);
+        })
+        .catch(err => console.log(err))
+    }
+    const hpPins = () => {
+        axios.get('/hpPins')
+        .then( res => {
+            setPinPaths(res.data);
+        })
+        .catch(err => console.log(err))
+    }
+    const sonnyAngelPins = () => {
+        axios.get('/sonnyAngelPins')
+        .then( res => {
+            setPinPaths(res.data);
+        })
+        .catch(err => console.log(err))
+    }
+    const smiskiPins = () => {
+        axios.get('/smiskiPins')
+        .then( res => {
+            setPinPaths(res.data);
+        })
+        .catch(err => console.log(err))
+    }
+    const otherPins = () => {
+        axios.get('/otherPins')
+        .then( res => {
+            setPinPaths(res.data);
+        })
+        .catch(err => console.log(err))
+    }
+
 
 
     return (
@@ -36,8 +88,9 @@ const Shop = () => {
                 <h1 className='mb-3 fw-bold'>Shop</h1>
                 {/* Left side filter box */}
                 <div className="d-flex">
-                    <Category>
-                        <CategoryMenu></CategoryMenu>
+                    <Category getAllPins={getAllPins} disneyPins={disneyPins} animePins={animePins} hpPins={hpPins} sonnyAngelPins={sonnyAngelPins} smiskiPins={smiskiPins} otherPins={otherPins}>
+                        <CategoryMenu>
+                        </CategoryMenu>
                     </Category>
                     {/* <div className='col-3 bg-light m-3 py-3 px-4'>
                         <h3 className='fw-bold'>Categories</h3>
@@ -59,16 +112,21 @@ const Shop = () => {
                     </div> */}
                     {/* Right side listings */}
                     <div className="d-flex gap-5 col-9 m-3 bg-primary">
-                    {
+                    { 
+                    pinPaths.length > 0 ?
                         pinPaths.map((items, key) => {
                             return (
-                                <div className='d-flex flex-column gap-1 p-3 bg-success'>
+                                <div className='d-flex flex-column p-3 bg-success'>
                                     <img src={`http://localhost:8000/` + items.image} alt='pin photo' className='pin-img mb-4'/>
-                                    <h3>{items.name}</h3>
-                                    <h5>${items.price}</h5>
+                                    <div className="d-flex flex-column pin-cards">
+                                        <h3>{items.name}</h3>
+                                        <p>{items.grade} grade</p>
+                                        <p>${items.price}</p>
+                                    </div>
                                 </div>
                             )
-                        })
+                        }) :
+                        <h3>Sorry! Currently, there are no listings for this category!</h3>
                     }
                     </div>
                 </div>

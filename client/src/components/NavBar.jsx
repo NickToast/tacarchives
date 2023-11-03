@@ -27,7 +27,7 @@ const NavBar = (props) => {
         <div className="container">
             <div className="d-flex justify-content-between align-items-center">
                 {/* // Links on the left of NavBar */}
-                <ul className='d-flex gap-3 nav-bar'>
+                <ul className='d-flex gap-3 nav-bar col-3'>
                     <li>
                         <NavLink to='/' className={({isActive}) => (isActive ? 'active' : 'nav-link')}
                         >
@@ -37,7 +37,7 @@ const NavBar = (props) => {
                     <li>
                         <NavLink to='/shop' className={({isActive}) => (isActive ? 'active' : 'nav-link')}
                         >
-                            Shop
+                            Listings
                         </NavLink>
                     </li>
                     <li>
@@ -60,7 +60,7 @@ const NavBar = (props) => {
                     </li>
                 </ul>
                 {/* Website Name in the middle of Navbar */}
-                <div className='title-font navbar-font-color'>
+                <div className='title-font navbar-font-color col-6'>
                     {/* Div to stack the words */}
                     <div>
                         <h2 className='fs-1'>theaestheticcollector</h2>
@@ -70,7 +70,7 @@ const NavBar = (props) => {
                     </div>
                 </div>
                 {/* Right Side Div  */}
-                <div className='d-flex justify-content-between align-items-center m-5 gap-3'>
+                <div className='d-flex justify-content-between align-items-center m-5 gap-3 col-3'>
                     {/* Search Bar  */}
                     <div>
                         <SearchBar />

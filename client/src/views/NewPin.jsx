@@ -10,6 +10,7 @@ const NewPin = () => {
         name: '',
         price: 0,
         grade: '',
+        plating: '',
         category: ''
     })
 
@@ -55,11 +56,15 @@ const NewPin = () => {
                 <form onSubmit={handleSubmit}>
                     <div className='mb-3'>
                         <label className='me-2 pin-label'>Name: </label>
-                        <input type="text" placeholder='Name' className='px-2 py-2 pin-input' name='name' value={formData.name} onChange={handleChange}/>
+                        <input type="text" placeholder='Name and LE' className='px-2 py-2 pin-input' name='name' value={formData.name} onChange={handleChange}/>
                     </div>
                     <div className='mb-3'>
                         <label className='me-2 pin-label'>Price: </label>
                         <input type="number" placeholder='$0.00' className='px-2 py-2 pin-input' name='price' value={formData.price} onChange={handleChange}/>
+                    </div>
+                    <div className='mb-3'>
+                        <label className='me-2 pin-label'>Plating: </label>
+                        <input type="text" placeholder='Plating' className='px-2 py-2 pin-input' name='plating' value={formData.plating} onChange={handleChange}/>
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="grade" className='me-2 pin-label'>Grade: </label>

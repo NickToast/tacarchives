@@ -10,6 +10,9 @@ const PinSchema = new mongoose.Schema({
     grade: {
         type: String
     },
+    plating: {
+        type: String
+    },
     image: {
         type: String
     },

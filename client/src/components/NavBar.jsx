@@ -27,7 +27,7 @@ const NavBar = (props) => {
         <div className="container">
             <div className="d-flex justify-content-between align-items-center">
                 {/* // Links on the left of NavBar */}
-                <ul className='d-flex gap-3 m-5 nav-bar'>
+                <ul className='d-flex gap-3 nav-bar'>
                     <li>
                         <NavLink to='/' className={({isActive}) => (isActive ? 'active' : 'nav-link')}
                         >

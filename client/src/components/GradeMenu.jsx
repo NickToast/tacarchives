@@ -21,6 +21,7 @@ const GradeMenu = () => {
                     <li><button className="category-filter">A</button></li>
                     <li><button className="category-filter">B</button></li>
                     <li><button className="category-filter">C</button></li>
+                    <li><button className="category-filter">D</button></li>
                 </ul> : <></>
             }
             </div>

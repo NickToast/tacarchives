@@ -4,8 +4,6 @@ import Footer from '../components/Footer'
 import axios from 'axios'
 import Category from '../components/Category'
 import CategoryMenu from '../components/CategoryMenu'
-import PriceMenu from '../components/PriceMenu'
-import GradeMenu from '../components/GradeMenu'
 
 const Shop = () => {
 

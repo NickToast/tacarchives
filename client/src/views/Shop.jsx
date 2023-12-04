@@ -82,6 +82,7 @@ const Shop = () => {
     return (
         <div>
             <NavBar/>
+            {/* container div */}
             <div>
                 <h1 className='mb-3 fw-bold'>Shop</h1>
                 {/* Left side filter box */}

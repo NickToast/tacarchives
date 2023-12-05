@@ -9,7 +9,19 @@ const About = () => {
     return (
         <div>
             <NavBar />
-            <h2>About</h2>
+            {/* container */}
+            <div>
+                <h2>About</h2>
+                {/* hero section */}
+                <div>
+                    {/* hero image */}
+                    <img src="" alt="" />
+                </div>
+                {/* maybe parallax? on desktop view */}
+                <div>
+
+                </div>
+            </div>
             <Footer/>
         </div>
     )

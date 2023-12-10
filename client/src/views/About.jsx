@@ -11,7 +11,7 @@ const About = () => {
             <NavBar />
             {/* container */}
             <div>
-                <h2>About</h2>
+                <h2 className='fw-bold mb-3'>About</h2>
                 {/* hero section */}
                 <div>
                     {/* hero image */}

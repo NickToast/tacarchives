@@ -10,6 +10,7 @@ const About = () => {
         <div>
             <NavBar />
             {/* container */}
+            {/* react timeline component? left and right columns to describe about section, values, and background if needed */}
             <div>
                 <h2 className='fw-bold mb-3'>About</h2>
                 {/* hero section */}

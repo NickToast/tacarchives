@@ -23,7 +23,7 @@ const About = () => {
                     </div>
                 </div>
                 {/* maybe parallax? on desktop view */}
-                <div>
+                <div className='parallax'>
 
                 </div>
             </div>

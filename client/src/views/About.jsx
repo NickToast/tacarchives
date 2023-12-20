@@ -24,7 +24,7 @@ const About = () => {
                 </div>
                 {/* maybe parallax? on desktop view */}
                 <div className='parallax'>
-
+                    <img src="" alt="" />
                 </div>
             </div>
             <Footer/>

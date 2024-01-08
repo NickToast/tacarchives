@@ -26,6 +26,7 @@ const About = () => {
                 <div className='parallax'>
                     <img src="" alt="" />
                 </div>
+                <div></div>
             </div>
             <Footer/>
         </div>
